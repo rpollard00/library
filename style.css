@@ -1,0 +1,201 @@
+:root {
+    --bgcolor: #F1DAC4;
+    --bgcolor2: #754F44;
+    --fgcolor: #13070C;
+    --buttoncolor: #73BA9B;
+    --buttonHoverColor: #51CA4B;
+    --bookcolor: #921219;
+    --bookfgcolor: #CCCCCC;
+}
+
+body {
+    color: var(--fgcolor);
+    background: linear-gradient(0deg, var(--bgcolor) 0 50%, var(--bgcolor) 50% 100%);
+    /* background-color: var(--bgcolor); */
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-top: 10px;
+    color: var(--fgcolor);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.container {
+    box-sizing: border-box;
+    margin-top: 10vh;
+    width: 60vw;
+    display: flex;
+    flex: 1;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+}
+
+.shelf {
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--bgcolor2);
+}
+
+.bookCard {
+    /* border: 2px solid black; */
+    border-radius: 3px;
+    border-bottom: 2px solid black;
+    color: var(--bookfgcolor);
+    background-color: var(--bookcolor);
+    display: flex;
+    padding: 0.1rem;
+
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: inset 0px 30px 27px -13px rgba(255, 248, 181, 0.33),
+        inset 0px -17px 27px -13px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0px 15px 4px #316042; */
+}
+
+.bookCard:first-child::after {
+    box-shadow: 0px 20px 27px -13px rgba(0, 0, 0, 0.5);
+}
+
+
+.bookCard h2 {
+    font-size: 1.5rem;
+}
+
+.bookCard div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    /* transform: rotate(-90deg); */
+}
+
+
+.controls {
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+dialog form button,
+.controls>button {
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background-color: var(--buttoncolor);
+    width: 120px;
+    height: 40px;
+    transition: width 1s ease, height 1s ease-in-out;
+}
+
+.controls>button:hover {
+    width: 130px;
+    height: 48px;
+    transition: width 1s ease, height 1s ease-in-out;
+}
+
+.controls>button:active {
+    border: 3px solid black;
+}
+
+.remove-button {
+    position: relative;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5), 0 0 4px rgba(0, 0, 0, 5);
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+.remove-button:hover {
+    color: red;
+}
+
+.remove-button:hover::after {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: 30px;
+    content: "Remove Book"
+}
+
+dialog {
+    padding: 20px;
+    width: max(200px, 30vw);
+    height: max(400px, 30vh);
+    border: none;
+    background-color: var(--bgcolor);
+    border-radius: 16px;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(4px);
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+dialog form ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+dialog form ul>li {
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+dialog form ul>li>label {
+    display: block;
+    padding: 4px;
+}
+
+dialog form input {
+    flex: 1 1 auto;
+    width: auto;
+    height: 3ch;
+}
+
+dialog form input[type="checkbox"] {
+    border: none;
+    background-color: red;
+}
+
+dialog form button {
+    flex: 1 1 auto;
+    align-self: center;
+    width: 90%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    background-color: var(--buttoncolor);
+    height: 40px;
+    transition: width 1s ease, height 1s ease-in-out;
+}
+
+dialog form button:hover {
+    width: 100%;
+    background-color: var(--buttonHoverColor);
+    transition: width 1s ease, background-color 1s ease;
+}
+
+dialog form button:active {
+    border: 3px solid black;
+}
